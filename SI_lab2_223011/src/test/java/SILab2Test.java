@@ -11,16 +11,16 @@ class SILab2Test {
     }
  @Test
     void EveryBranch() {
-        RuntimeException exception;
-        exception = assertThrows(RuntimeException.class, () -> SILab2.checkCart(null, 1));
-        assertTrue(exception.getMessage().contains("allItems e null"));
+  RuntimeException exc;
+        exc = assertThrows(RuntimeException.class, () -> SILab2.checkCart(null, 1));
+        assertTrue(exc.getMessage().contains("allItems e null"));
         assertTrue(SILab2.checkCart(new ArrayList<Item>(), 0));
         assertFalse(SILab2.checkCart(new ArrayList<Item>(), -1));
-        exception = assertThrows(RuntimeException.class, () -> SILab2.checkCart(items(new Item("", null, 20, 0.5f)), 1));
-        assertTrue(exception.getMessage().contains("Nema barkod"));
+        exc = assertThrows(RuntimeException.class, () -> SILab2.checkCart(items(new Item("", null, 20, 0.5f)), 1));
+        assertTrue(exc.getMessage().contains("Nema barkod"));
         assertFalse(SILab2.checkCart(items(new Item("", "012345", 500, 0.4f)), 2));
-        exception = assertThrows(RuntimeException.class, () -> SILab2.checkCart(items(new Item("Item1", "01234a", 500, 0.2f)), 1));
-        assertTrue(exception.getMessage().contains("Netocen barkod"));
+        exc = assertThrows(RuntimeException.class, () -> SILab2.checkCart(items(new Item("Item1", "01234a", 500, 0.2f)), 1));
+        assertTrue(exc.getMessage().contains("Netocen barkod"));
         assertFalse(SILab2.checkCart(items(new Item("Item1", "12345", 100, -1)), 100));
     }
     @Test
