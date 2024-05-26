@@ -12,16 +12,16 @@ class SILab2Test {
  @Test
     void EveryBranch() {
   RuntimeException exc;
-        exc = assertThrows(RuntimeException.class, () -> SILab2.checkCart(null, 1));
+       exc = assertThrows(RuntimeException.class, () -> SILab2.checkCart(null, 1));
         assertTrue(exc.getMessage().contains("allItems e null"));
         assertTrue(SILab2.checkCart(new ArrayList<Item>(), 0));
         assertFalse(SILab2.checkCart(new ArrayList<Item>(), -1));
-        exc = assertThrows(RuntimeException.class, () -> SILab2.checkCart(items(new Item("", null, 20, 0.5f)), 1));
+        exc = assertThrows(RuntimeException.class, () -> SILab2.checkCart(items(new Item("", null, 100, 0.1f)), 100));
         assertTrue(exc.getMessage().contains("Nema barkod"));
-        assertFalse(SILab2.checkCart(items(new Item("", "012345", 500, 0.4f)), 2));
-        exc = assertThrows(RuntimeException.class, () -> SILab2.checkCart(items(new Item("Item1", "01234a", 500, 0.2f)), 1));
+        assertFalse(SILab2.checkCart(items(new Item("", "012345", 350, 0.1f)), 100));
+        exc = assertThrows(RuntimeException.class, () -> SILab2.checkCart(items(new Item("Item1", "12345a", 100, 0.1f)), 100));
         assertTrue(exc.getMessage().contains("Netocen barkod"));
-        assertFalse(SILab2.checkCart(items(new Item("Item1", "12345", 100, -1)), 100));
+        assertFalse(SILab2.checkCart(items(new Item("Item1", "12345", 100, -1))
     }
     @Test
     void MultipleCondition(){
