@@ -25,10 +25,10 @@ class SILab2Test {
     }
     @Test
     void MultipleCondition(){
-        assertFalse(SILab2.checkCart(items(new Item("", "123", 350, 0.2f)),2));
-        assertFalse(SILab2.checkCart(items(new Item("", "123", 350, 0)),2));
-        assertTrue(SILab2.checkCart(items(new Item("", "012", 350, 0.2f)),300));
-        assertFalse(SILab2.checkCart(items(new Item("", "012", 100, 0.2f)),2));
+        assertFalse(SILab2.checkCart(items(new Item("Item1", "123", 350, 0.2f)),2));
+        assertFalse(SILab2.checkCart(items(new Item("Item1", "123", 350, 0)),2));
+        assertTrue(SILab2.checkCart(items(new Item("Item1", "012", 350, 0.2f)),300));
+        assertFalse(SILab2.checkCart(items(new Item("Item1", "012", 100, 0.2f))
     }
 
 }
